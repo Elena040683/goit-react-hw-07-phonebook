@@ -1,23 +1,15 @@
-import { Component } from 'react';
 import { useState } from 'react';
 import styles from './ContactForm.module.css';
-import actions from '../../redux/contacts/actions';
-import { connect, useSelector, useDispatch } from 'react-redux';
-import Contact from '../OneContact/OneContact';
+import operations from '../../redux/contacts/operations';
+import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../redux/contacts/selectors';
 
-// class ContactForm extends Component {
-function ContactForm() {
-  const contacts = useSelector(getContacts);
-  const dispatch = useDispatch();
-
+export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  // state = {
-  //   name: '',
-  //   number: '',
-  // };
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -33,20 +25,11 @@ function ContactForm() {
     }
   };
 
-  //  handleChange = e => {
-  //   const { name, value } = e.target;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // };
-
   const resetForm = () => {
     setName('');
     setNumber('');
   };
-  // resetForm = () => {
-  //   this.setState({ name: '', number: '' });
-  // };
+
   const handleSubmit = e => {
     e.preventDefault();
     if (
@@ -56,25 +39,10 @@ function ContactForm() {
     ) {
       return alert(`${name} is already exist`);
     }
-    dispatch(actions.addContact(name, number));
-    // addNewContact({ name, number });
+    dispatch(operations.addContact(name, number));
     resetForm();
   };
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   addNewContact({ name, number });
-  //   resetForm();
-  // };
 
-  //  handleSubmit = e => {
-  //   e.preventDefault();
-  //   // this.props.addNewContact(this.state);
-  //   this.props.onAdd(this.state);
-  //   this.resetForm();
-  // };
-
-  // render() {
-  //   const { name, number } = this.state;
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.label}>
@@ -109,18 +77,3 @@ function ContactForm() {
     </form>
   );
 }
-// }
-
-// const mapStateToProps = state => ({
-//   contactList: state.contacts,
-// });
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onAdd: ({ name, number }) => dispatch(actions.addContact({ name, number })),
-//   };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
-
-export default ContactForm;

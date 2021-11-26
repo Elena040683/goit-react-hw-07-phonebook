@@ -8,9 +8,10 @@ const addContactRequest = createAction('contacts/addContactRequest');
 const addContactSuccess = createAction('contacts/addContactSuccess');
 const addContactError = createAction('contacts/addContactError');
 
-const deleteContactsRequest = createAction('deleteContactsRequest');
-const deleteContactsSuccess = createAction('contacts/deleteContactsSuccess');
-const deleteContactsError = createAction('contacts/deleteContactsError');
+const deleteContactRequest = createAction('deleteContactRequest');
+const deleteContactSuccess = createAction('contacts/deleteContactSuccess');
+const deleteContactError = createAction('contacts/deleteContactError');
+
 const changeFilter = createAction('contacts/changeFilter');
 
 export default {
@@ -20,8 +21,8 @@ export default {
   addContactRequest,
   addContactSuccess,
   addContactError,
-  deleteContactsRequest,
-  deleteContactsSuccess,
-  deleteContactsError,
+  deleteContactRequest,
+  deleteContactSuccess,
+  deleteContactError,
   changeFilter,
 };

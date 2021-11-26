@@ -1,9 +1,8 @@
 import actions from '../../redux/contacts/actions';
 import styles from './Filter.module.css';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from '../../redux/contacts/selectors';
 
-// const Filter = ({ contacts, onChange }) => (
 const Filter = () => {
   const contacts = useSelector(getFilter);
   const dispatch = useDispatch();
@@ -20,13 +19,4 @@ const Filter = () => {
   );
 };
 
-// const mapStateToProps = state => ({
-//   value: state.contacts.filter,
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   onChange: e => dispatch(actions.changeFilter(e.target.value)),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Filter);
 export default Filter;

@@ -1,7 +1,7 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import Container from './components/Container/Container';
 import ContactForm from './components/ContactForm/ContactForm';
